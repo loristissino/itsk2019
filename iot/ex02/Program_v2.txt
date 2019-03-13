@@ -1,0 +1,74 @@
+﻿using System;
+
+namespace ex02
+{
+    class Program
+    {
+        static bool IsOrdered(int [] n)
+        {
+            for (int i=0; i<n.Length -1; i++){
+                if (n[i+1]<n[i]){
+                    return false;
+                }
+            }
+            return true;
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine(IsOrdered(new int[] { 2, 3, 4}) == true);
+            Console.WriteLine(IsOrdered(new int[] { 5, 3, 4}) == false);
+            Console.WriteLine(IsOrdered(new int[] { }) == true);
+            Console.WriteLine(IsOrdered(new int[] { 9 }) == true);
+            Console.WriteLine(IsOrdered(new int[] { 2, 3, 4, 3}) == false);
+            Console.WriteLine(PositionOfFirstEvenValue(new int[] { 3, 7, 4, 5}) == 2);
+            Console.WriteLine(PositionOfFirstEvenValue(new int[] { 3, 7, 9, 5}) == -1);
+            Console.WriteLine(PositionOfFirstEvenValue(new int[] { }) == -1);
+
+            int v;
+            bool found;
+            v = FirstEvenValue(new int[] { 3, 4, 7 }, out found);
+            if (found)
+            {
+                Console.WriteLine( v == 4 );
+            }
+
+            v = FirstEvenValue(new int[] { 3, 7, 11 }, out found);
+            if (!found)
+            {
+                Console.WriteLine(true);
+            }
+
+        }
+
+
+
+
+
+
+
+        static int FirstEvenValue(int [] n, out bool found)
+        {
+            for (int i=0; i<n.Length; i++){
+                if (n[i]%2==0){
+                    found = true;
+                    return n[i];
+                }
+            }
+            found = false;
+            return -1;
+        }
+
+
+        static int PositionOfFirstEvenValue(int [] n)
+        {
+            for (int i=0; i<n.Length; i++){
+                if (n[i]%2==0){
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+
+    }
+}
