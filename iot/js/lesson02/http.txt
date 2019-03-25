@@ -1,0 +1,125 @@
+
+  https://biblio.com/libri
+  
+  GET /libri?lang=it
+  Host: biblio.com
+  User-Agent: MyClient v 3.12
+  Accept-Encoding: *
+  Accept-Languages: it, en=0.8, fr=0.6
+  
+  HTTP/1.1 200 OK
+  Server: SonoUnServerNode v. 4.5
+  Content-Type: text/json
+  Content-Length: 2034
+  
+  [ 
+    {"id": 345, "title": "fgsd", "author": "fgfg" }, 
+    {"id": 346, "title": "fgsd", "author": "fgfg" }, 
+    {"id": 789, "title": "fgsd", "author": "fgfg" }, 
+  ]
+
+
+
+-------------
+
+
+
+  GET /libri/id/345
+  Host: biblio.com
+  User-Agent: MyClient v 3.12
+  Accept-Encoding: *
+  Accept-Languages: it, en=0.8, fr=0.6
+  
+  HTTP/1.1 200 OK
+  Server: SonoUnServerNode v. 4.5
+  Content-Type: text/json
+  Content-Length: 2034
+  
+  {
+    "id": 345,
+    ...
+    ...
+  }
+
+
+-----
+
+  GET /libri/id/245
+  Host: biblio.com
+  User-Agent: MyClient v 3.12
+  Accept-Encoding: *
+  Accept-Languages: it, en=0.8, fr=0.6
+  
+  HTTP/1.1 301 Moved
+  Server: SonoUnServerNode v. 4.5
+  Content-Type: text/json
+  Content-Length: 2034
+  
+  {
+    "url": "https://biblio.com/libri/10245,
+    ...
+    ...
+  }
+
+-------
+
+  POST /libri
+  Host: biblio.com
+  User-Agent: MyClient v 3.12
+  Accept-Encoding: *
+  Accept-Languages: it, en=0.8, fr=0.6
+  Content-Type: text/json
+  Content-Length: 2045
+  
+  {
+    "id": 345,
+    ...
+    ...
+  }
+  
+----
+
+
+  PUT /libri/id/345
+  Host: biblio.com
+  User-Agent: MyClient v 3.12
+  Accept-Encoding: *
+  Accept-Languages: it, en=0.8, fr=0.6
+  Content-Type: text/json
+  Content-Length: 2045
+  
+  {
+    "id": 345,
+    "title" ...
+    ...
+  }
+  
+
+
+
+  POST /login
+  ...
+  ...
+  ...
+  
+  username="loris", password="zorro"
+  
+  
+  
+  HTTP/1.1 200 OK
+  Cookie: 093824ruwer9afgsadfgosdgoisdfoiugsdfgsdfg
+  
+  
+  GET /estrattoconto
+  Cookie: 093824ruwer9afgsadfgosdgoisdfoiugsdfgsdfg
+
+
+  
+
+D  GET /
+  
+R  { name: 'Andrea', surname: 'Dottor' }
+
+
+
+
