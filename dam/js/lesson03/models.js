@@ -109,31 +109,6 @@ class Book {
     }
 }
 
-/*
- * Storage.path = "library.sqlite";
-console.log(Storage.path);
-/*
-let b = new Book('aaddd', 'bbccc' , 1980);
-b.title="Accipicchia!";
-b.save();
-*/
-//console.log(b);
-//b.save().then(x => { console.log(x); }).catch((err)=> {console.log(err)});
-
-//let b1;
-/*
-Book.retrieveByPK(6).then((book) => {
-    b1=book;
-    console.log(b1);
-    b1.delete().then(x=>{ console.log("deleted:" + x); });
-});
-*/
-/*
-Book.retrieveAll().then((books) => {
-    console.log(books);
-});
-*/
-
 module.exports = {
     Storage,
     Book
