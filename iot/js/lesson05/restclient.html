@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+  <title>JS ReST Client</title>
+  <meta charset="utf-8" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+ 
+<body>
+  <h1 id="maintitle">Basic ReST client</h1>
+
+  <p><a href="#" id="retrieve">Retrieve people</a></p>
+  
+  <div id="maincontent">
+      <div id="people">
+      </div>
+  </div>
+
+  <script>
+    
+  $( document ).ready(function() {
+    $("#retrieve").click( function() {
+        retrievePeople();
+      }
+    );
+    $("#comment").hide();
+  });
+
+  var url = 'https://www.tissino.it/itskennedy/?sleep=2&v=people';
+  
+  function retrievePeople() {
+    $("#people").html("Retrieving people...");
+
+    $.getJSON( url )
+    .done(function( data ) {
+      console.log(data);
+      
+      $( "#people" ).html("");
+      $( "#retrieve" ).parent().remove();
+      
+      var ul = $("<ul/>");
+      
+      var people = [];
+      $.each( data, function( id, person ) {
+        ul.append($("<li/>", { html: `${person.name} (${person.age})` }));
+      });
+      
+      $( "<p/>", {
+        html: "People:",
+      }).appendTo( "#people" );
+      
+      ul.appendTo( "#people" );
+        
+    })
+    .fail(function() {
+      console.log("error");
+      $( "#people" ).html("Sorry, could not retrieve data.");
+    })
+    ;
+      
+  }
+
+  </script>
+
+</body>
+ 
+</html>
